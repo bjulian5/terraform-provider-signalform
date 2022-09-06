@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/Yelp/terraform-provider-signalform/src/terraform-provider-signalform/signalform"
 	"github.com/hashicorp/terraform/plugin"
-	"terraform-provider-signalform/signalform"
 )
 
 func main() {

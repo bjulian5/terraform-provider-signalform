@@ -2,13 +2,15 @@ package signalform
 
 import (
 	"fmt"
-	"github.com/hashicorp/terraform/config"
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/hashicorp/terraform/terraform"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"os"
 	"testing"
+
+	"github.com/hashicorp/terraform/config"
+	"github.com/hashicorp/terraform/configs"
+	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/terraform"
+	"github.com/stretchr/testify/assert"
 )
 
 var OldSystemConfigPath = SystemConfigPath
@@ -45,7 +47,7 @@ func TestProviderConfigureFromNothing(t *testing.T) {
 	SystemConfigPath = "filedoesnotexist"
 	HomeConfigPath = "filedoesnotexist"
 	raw := make(map[string]interface{})
-	rawConfig, err := config.NewRawConfig(raw)
+	rawConfig, err := configs.NewRawConfig(raw)
 	if err != nil {
 		t.Fatalf("Error creating mock config: %s", err.Error())
 	}
